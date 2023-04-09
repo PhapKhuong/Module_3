@@ -1,0 +1,13 @@
+Một ứng dụng quản lý bán hàng và vận chuyển có các tính năng sau:
+
+- Ứng dụng cho phép hiển thị các sản phẩm để khách hàng order. Thông tin sản phẩm gồm: Mã sản phẩm, tên sản phẩm, loại sản phẩm, số lượng trong kho, giá bán, chi tiết sản phẩm.
+
+- Khách hàng có thể view sản phẩm từ ứng dụng và đặt hàng, khi đặt hàng thì phải cung cấp đầy đủ các thông tin: Mã khách hàng, tên khách hàng, địa chỉ, số điện thoại.
+
+- Khách hàng có thể lựa chọn một hoặc nhiều sản phẩm để đặt hàng, khi đặt hàng thì phải chỉ rõ số lượng sản phẩm của mỗi loại sản phẩm cần đặt.
+
+- Ứng dụng cho phép đánh giá sản phẩm của khách hàng, thông tin đánh giá bao gồm: nội dung đánh giá, đánh giá từ 1 sao đến 5 sao, ngoài ra thông tin đánh giá phải biết rõ đánh giá đó là đánh giá của sản phẩm nào và từ khách hàng nào.
+
+- Nhân viên giao hàng sẽ nhận đơn hàng và xác nhận đơn hàng đã giao thành công hay chưa. Khi đơn hàng được xác nhận thành công thì trạng thái của đơn hàng sẽ chuyển thành đã giao hàng.
+
+- Trong quá trình vận chuyển, nhân viên giao hàng phải cập nhật trạng thái vận chuyển (đang giao hàng, hoãn chuyển hàng, đã giao hàng...) và địa điểm vận chuyển của đơn hàng.
