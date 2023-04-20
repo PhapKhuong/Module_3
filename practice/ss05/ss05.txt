@@ -1,0 +1,57 @@
+SELECT * FROM a0722i1.book;
+create view book_view as
+select name, author from book;
+select * from book_view;
+
+
+delimiter //
+create procedure create_book(id int, author varchar(20),
+name varchar(20), price float)
+begin
+  insert into book(book_id, author, name, price)
+  values (id, author, name, price);
+end //
+delimiter ;
+
+
+delimiter //
+create procedure count_book(OUT count int)
+begin
+  select count(1) into count from book;
+end //
+delimiter ;
+
+
+call create_book(11, 'Khue', 'Hoc tot SQL', 100000);
+call count_book(@count);
+select @count;
+
+
+delimiter //
+create function getBookName(id int)
+returns varchar(20)
+begin
+	declare book_name varchar(20);
+    select name into book_name from book
+    where book_id = id;
+    return book_name;
+end //
+delimiter ;
+
+
+select getBookName(11);
+
+
+Delimiter //
+create trigger before_book_update
+after update on book
+for each row
+begin
+	if new.price > old.price * 1.1 then
+         update book set price = old.price * 1.1
+         where book_id = new.book_id;
+	end if;
+end //
+delimiter ;
+select * from book;
+update book set price = 200000 where book_id = 11;
