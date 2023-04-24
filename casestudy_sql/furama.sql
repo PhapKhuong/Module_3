@@ -77,6 +77,9 @@ CREATE TABLE loai_dich_vu (
 	ten_loai_dịch_vu VARCHAR(45)
 );
 
+ALTER TABLE loai_dich_vu
+CHANGE ten_loai_dịch_vu ten_loai_dich_vu VARCHAR(45);
+
 CREATE TABLE dich_vu (
 	ma_dich_vu INT PRIMARY KEY AUTO_INCREMENT,
 	ten_dich_vu VARCHAR(45),
@@ -161,7 +164,7 @@ VALUES
 	(4,'nước uống',30000,'suat','mnpq'),
 	(5,'thuê xe di chuyển tham quan resort',150000,'gio','xyz');
 	
-INSERT INTO loai_dich_vu (ma_loai_dich_vu, ten_loai_dịch_vu)
+INSERT INTO loai_dich_vu (ma_loai_dich_vu, ten_loai_dich_vu)
 VALUES
 	(1,'Villa'),
 	(2,'House'),
@@ -220,6 +223,11 @@ VALUES
 	('Hoang Thi Anh Loan','1987-8-12','5379012405',10000000,'67476098761','nwm@gmail.com','Quang Nam',6,2,1),
 	('Nguyen Huynh Nhu Tu','1995-7-25','7528301294',10000000,'16444105846','rms@gmail.com','Da Nang',6,2,1),
 	('Nguyen Thi Kim Thuy','1992-2-17','3929833613',12000000,'66799777013','vxg@gmail.com','Da Nang',5,1,2);
+	
+INSERT INTO nhan_vien (
+	ho_ten_nv, ngay_sinh_nv, so_cmnd_nv, luong, so_dien_thoai_nv, email_nv, dia_chi_nv, ma_vi_tri, ma_trinh_do, ma_bo_phan)
+VALUES
+	('NV chua lap HD nao','1990-1-6','0000000000',30000000,'00000000000','zzz@gmail.com','#### ####',3,3,4);
 
 UPDATE nhan_vien
 SET ho_ten_nv = 'Nguyen Anh Hung'
@@ -464,6 +472,20 @@ INSERT INTO khach_hang (
 VALUES
 	(5,'Khach khong dat hang',NULL,1,NULL,NULL,NULL,NULL);
 	
+INSERT INTO khach_hang (
+	ma_loai_khach, ho_ten_kh, ngay_sinh_kh, gioi_tinh, so_cmnd_kh, so_dien_thoai_kh, email_kh, dia_chi_kh)
+VALUES
+	(3,'Khach hang trung ten',NULL,0,NULL,NULL,NULL,NULL),
+	(5,'Khach hang trung ten',NULL,1,NULL,NULL,NULL,NULL);
+	
+UPDATE khach_hang
+SET dia_chi_kh = 'Quang Ngai'
+WHERE ma_khach_hang = 187;
+	
+UPDATE khach_hang
+SET ma_loai_khach = 1
+WHERE ma_khach_hang = 187;
+	
 INSERT INTO dich_vu (
 	ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, ma_kieu_thue, ma_loai_dich_vu, tieu_chuan_phong,
 	mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang)
@@ -528,6 +550,12 @@ VALUES
 	(58,'Room 18',40,8003000,12,1,3,NULL,NULL,NULL,NULL),
 	(59,'Room 19',72,2740000,13,4,3,NULL,NULL,NULL,NULL),
 	(60,'Room 20',68,1126000,19,2,3,NULL,NULL,NULL,NULL);
+	
+INSERT INTO dich_vu (
+	ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, ma_kieu_thue, ma_loai_dich_vu, tieu_chuan_phong,
+	mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang)
+VALUES
+	(61,'Khong duoc dung',83,1000000,1,1,1,NULL,NULL,1,1);
 
 INSERT INTO hop_dong(
 	ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, ma_nhan_vien, ma_khach_hang, ma_dich_vu)
@@ -3553,6 +3581,14 @@ BEGIN
 END //
 delimiter ;
 
+SELECT SUBSTRING_INDEX ('Khuong Tu Thanh',' ',-1);
+
+SELECT SUBSTRING_INDEX ('Khuong Tu Thanh',' ',-2);
+
+SELECT SUBSTRING_INDEX ('Khuong Tu Thanh',' ',-3);
+
+SELECT SUBSTRING_INDEX ('Khuong Tu Thanh',' ',-4);
+
 SELECT lay_ten('Khuong Tu Thanh');
 
 SELECT * FROM nhan_vien
@@ -3600,8 +3636,7 @@ INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_ke
 INNER JOIN dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu)
 RIGHT OUTER JOIN khach_hang kh ON hd.ma_khach_hang = kh.ma_khach_hang)
 INNER JOIN loai_khach lk ON kh.ma_loai_khach = lk.ma_loai_khach
-GROUP BY kh.ma_khach_hang, kh.ho_ten_kh, lk.ten_loai_khach, hd.ma_hop_dong, dv.ten_dich_vu, hd.ngay_lam_hop_dong,
-	hd.ngay_ket_thuc;
+GROUP BY kh.ma_khach_hang, hd.ma_hop_dong;
 
 SELECT hd.ma_hop_dong, kh.ma_khach_hang, SUM(dvdk.gia) + dv.chi_phi_thue AS tong
 FROM ((((hop_dong_chi_tiet hdct INNER JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong)
@@ -3609,19 +3644,232 @@ INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_ke
 INNER JOIN dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu)
 INNER JOIN khach_hang kh ON hd.ma_khach_hang = kh.ma_khach_hang)
 INNER JOIN loai_khach lk ON kh.ma_loai_khach = lk.ma_loai_khach
-GROUP BY hd.ma_hop_dong, kh.ma_khach_hang
+GROUP BY hd.ma_hop_dong, kh.ma_khach_hang;
 
 SELECT * FROM khach_hang;
 
+-- 6.	Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu của tất cả các loại dịch vụ
+-- chưa từng được khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3)
+
+SELECT dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.chi_phi_thue, ldv.ten_loai_dich_vu
+FROM dich_vu dv INNER JOIN loai_dich_vu ldv ON dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
+WHERE dv.ma_dich_vu NOT IN (
+SELECT hd.ma_dich_vu
+FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong,'2021-1-1')>=0)
+GROUP BY dv.ma_dich_vu;
+
+-- 7.	Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da, chi_phi_thue, ten_loai_dich_vu
+-- của tất cả các loại dịch vụ đã từng được khách hàng đặt phòng trong năm 2020 nhưng chưa từng được khách hàng đặt
+-- phòng trong năm 2021
+
+SELECT dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.so_nguoi_toi_da, dv.chi_phi_thue, ldv.ten_loai_dich_vu
+FROM (dich_vu dv INNER JOIN loai_dich_vu ldv ON dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu)
+INNER JOIN hop_dong hd ON dv.ma_dich_vu = hd.ma_dich_vu
+WHERE dv.ma_dich_vu NOT IN (
+SELECT hd.ma_dich_vu
+FROM hop_dong hd
+WHERE DATEDIFF (hd.ngay_lam_hop_dong, '2021-1-1') >= 0)
+AND DATEDIFF (hd.ngay_lam_hop_dong, '2020-1-1') >= 0
+AND DATEDIFF (hd.ngay_lam_hop_dong, '2020-12-31') <= 0;
+
+-- 8.	Hiển thị thông tin ho_ten khách hàng có trong hệ thống, với yêu cầu ho_ten không trùng nhau
+-- Cách 1: Sử dụng GROUP BY
+SELECT ho_ten_kh FROM khach_hang
+GROUP BY ho_ten_kh;
+
+-- Cách 2: Sử dụng DISTINCT
+SELECT DISTINCT ho_ten_kh FROM khach_hang;
+
+-- Cách 3: Sử dụng UNION
+SELECT ho_ten_kh FROM khach_hang
+UNION
+SELECT ho_ten_kh FROM khach_hang
+
+-- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu
+-- khách hàng thực hiện đặt phòng
+
+SELECT MONTH (ngay_lam_hop_dong) AS "thang (2021)", SUM(dv.chi_phi_thue) + SUM(dvdk.gia) AS "Doanh thu"
+FROM ((hop_dong_chi_tiet hdct INNER JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong)
+INNER JOIN dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu)
+INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+WHERE YEAR (ngay_lam_hop_dong) = 2021
+GROUP BY MONTH (ngay_lam_hop_dong)
+ORDER BY MONTH(ngay_lam_hop_dong);
+
+-- 10. Hiển thị thông tin tương ứng với từng hợp đồng thì đã sử dụng bao nhiêu dịch vụ đi kèm. Kết quả hiển thị
+-- bao gồm ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, so_luong_dich_vu_di_kem (được tính dựa trên
+-- việc sum so_luong ở dich_vu_di_kem)
+
+SELECT hd.ma_hop_dong, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, hd.tien_dat_coc, COUNT(hdct.ma_dich_vu_di_kem) AS "So luong DVDK"
+FROM hop_dong_chi_tiet hdct RIGHT JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong
+GROUP BY hd.ma_hop_dong
+ORDER BY COUNT(hdct.ma_dich_vu_di_kem);
+
+-- 11. Hiển thị thông tin các dịch vụ đi kèm đã được sử dụng bởi những khách hàng có ten_loai_khach là “Diamond”
+-- và có dia_chi ở “Vinh” hoặc “Quảng Ngãi”
+
+SELECT dvdk.ten_dich_vu_di_kem, kh.ho_ten_kh, kh.dia_chi_kh, lk.ten_loai_khach
+FROM (((hop_dong_chi_tiet hdct INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem)
+INNER JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong)
+INNER JOIN khach_hang kh ON hd.ma_khach_hang = kh.ma_khach_hang)
+INNER JOIN loai_khach lk ON kh.ma_loai_khach = lk.ma_loai_khach
+WHERE lk.ten_loai_khach = "Diamond"
+AND (kh.dia_chi_kh = "Nghe An" OR kh.dia_chi_kh = "Quang Ngai");
+
+-- 12. Hiển thị thông tin ma_hop_dong, ho_ten (nhân viên), ho_ten (khách hàng), so_dien_thoai (khách hàng), ten_dich_vu,
+-- so_luong_dich_vu_di_kem (được tính dựa trên việc sum so_luong ở dich_vu_di_kem), tien_dat_coc của tất cả các dịch vụ
+-- đã từng được khách hàng đặt vào 3 tháng cuối năm 2020 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021
+
+SELECT hd.ma_hop_dong, nv.ho_ten_nv, kh.ho_ten_kh, kh.so_dien_thoai_kh, dv.ten_dich_vu, hd.ngay_lam_hop_dong,
+	COUNT(hdct.ma_dich_vu_di_kem) AS 'so luong dvdk', hd.tien_dat_coc
+FROM ((((hop_dong_chi_tiet hdct RIGHT JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong)
+LEFT JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem)
+INNER JOIN dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu)
+INNER JOIN khach_hang kh ON hd.ma_khach_hang = kh.ma_khach_hang)
+INNER JOIN nhan_vien nv ON hd.ma_nhan_vien = nv.ma_nhan_vien
+WHERE hd.ma_hop_dong IN (
+SELECT hd.ma_hop_dong
+FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong, "2020-10-1") > 0 AND DATEDIFF(hd.ngay_lam_hop_dong, "2020-12-31") < 0)
+AND hd.ma_hop_dong NOT IN (
+SELECT hd.ma_hop_dong
+FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong, "2021-1-1") > 0 AND DATEDIFF(hd.ngay_lam_hop_dong, "2020-6-30")< 0)
+GROUP BY hd.ma_hop_dong;
+
+-- 13. Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng
+-- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau)
+
+SELECT dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, COUNT(hdct.ma_hop_dong_chi_tiet) AS "So lan duoc su dung"
+FROM hop_dong_chi_tiet hdct INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+GROUP BY hdct.ma_dich_vu_di_kem
+ORDER BY COUNT(dvdk.ma_dich_vu_di_kem) DESC;
+
+-- 14. Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. Thông tin hiển thị bao gồm
+-- ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung (được tính dựa trên việc count các ma_dich_vu_di_kem)
+-- (Hỏi lại đề bài câu này)
+
+SELECT hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, COUNT(dvdk.ma_dich_vu_di_kem)
+FROM (((hop_dong_chi_tiet hdct INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem)
+INNER JOIN hop_dong hd ON hd.ma_hop_dong = hdct.ma_hop_dong)
+INNER JOIN dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu)
+INNER JOIN loai_dich_vu ldv ON dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
+WHERE dvdk.ma_dich_vu_di_kem IN (
+SELECT dvdk.ma_dich_vu_di_kem
+FROM hop_dong_chi_tiet hdct INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+GROUP BY dvdk.ma_dich_vu_di_kem
+HAVING COUNT(dvdk.ma_dich_vu_di_kem) = 1)
+GROUP BY dvdk.ten_dich_vu_di_kem, hd.ma_hop_dong, ldv.ma_loai_dich_vu;
 
 
+-- 15. Hiển thị thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai,
+-- dia_chi mới chỉ lập được tối đa 3 (10) hợp đồng từ năm 2020 đến 2021
 
+SELECT nv.ma_nhan_vien, nv.ho_ten_nv, td.ten_trinh_do, bp.ma_bo_phan, nv.so_dien_thoai_nv,
+	nv.dia_chi_nv, COUNT(hd.ma_nhan_vien) AS 'so hop dong lap'
+FROM ((hop_dong hd INNER JOIN nhan_vien nv ON hd.ma_nhan_vien = nv.ma_nhan_vien)
+INNER JOIN trinh_do td ON nv.ma_trinh_do = td.ma_trinh_do)
+INNER JOIN bo_phan bp ON nv.ma_bo_phan = bp.ma_bo_phan
+GROUP BY hd.ma_nhan_vien
+HAVING COUNT(hd.ma_nhan_vien) <= 10;
 
+-- 16. Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021
 
+CREATE TEMPORARY TABLE bang_tam_nhan_vien (
+	ma_nhan_vien_tam INT);
 
+INSERT INTO bang_tam_nhan_vien (ma_nhan_vien_tam)
+SELECT hd.ma_nhan_vien FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong,'2019-1-1') >= 0
+AND DATEDIFF(hd.ngay_lam_hop_dong,'2021-12-31') <= 0;
 
+SELECT * FROM bang_tam_nhan_vien;
 
+DELETE FROM hop_dong_chi_tiet hdct
+WHERE hdct.ma_hop_dong NOT IN (
+SELECT hd.ma_hop_dong FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong,'2019-1-1') >= 0
+AND DATEDIFF(hd.ngay_lam_hop_dong,'2021-12-31') <= 0);
 
+DELETE FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong,'2019-1-1') < 0
+OR DATEDIFF(hd.ngay_lam_hop_dong,'2021-12-31') > 0;
 
+DELETE FROM nhan_vien nv
+WHERE nv.ma_nhan_vien NOT IN (
+SELECT * FROM bang_tam_nhan_vien);
 
+DROP TABLE bang_tam_nhan_vien;
 
+SELECT * FROM nhan_vien;
+
+-- 17. Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, chỉ cập nhật những khách hàng
+-- đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
+
+SELECT * FROM khach_hang kh
+WHERE kh.ma_khach_hang IN (
+SELECT hd.ma_khach_hang
+FROM ((hop_dong_chi_tiet hdct INNER JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong)
+INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem)
+INNER JOIN dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu
+GROUP BY hd.ma_khach_hang, hd.ngay_lam_hop_dong
+HAVING DATEDIFF(hd.ngay_lam_hop_dong, '2021-1-1') >= 0
+AND DATEDIFF(hd.ngay_lam_hop_dong, '2021-12-31') <= 0
+AND SUM(dv.chi_phi_thue) + SUM(dvdk.gia) > 10000000)
+AND (kh.ma_loai_khach = 1 OR kh.ma_loai_khach = 2);
+
+-- 18. Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng)
+
+DELETE FROM hop_dong_chi_tiet hdct
+WHERE hdct.ma_hop_dong IN (
+SELECT hd.ma_hop_dong FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong, '2021-1-1') < 0);
+
+DELETE FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong, '2021-1-1') < 0;
+
+DELETE FROM khach_hang kh
+WHERE kh.ma_khach_hang NOT IN (
+SELECT hd.ma_khach_hang
+FROM hop_dong hd
+WHERE DATEDIFF(hd.ngay_lam_hop_dong, '2021-1-1') >= 0);
+
+-- 19. Cập nhật giá cho các dịch vụ đi kèm được sử dụng tối thiểu 40 lần trong năm 2021 lên gấp đôi
+
+CREATE TEMPORARY TABLE bang_tam_dich_vu_di_kem (
+	ma_dich_vu_tam INT);
+	
+INSERT INTO bang_tam_dich_vu_di_kem (ma_dich_vu_tam)
+SELECT dvdk.ma_dich_vu_di_kem
+FROM (hop_dong_chi_tiet hdct INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem)
+INNER JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong
+WHERE DATEDIFF(hd.ngay_lam_hop_dong, '2021-1-1') >= 0
+AND DATEDIFF(hd.ngay_lam_hop_dong, '2021-12-31') <= 0
+GROUP BY dvdk.ma_dich_vu_di_kem
+HAVING COUNT(dvdk.ma_dich_vu_di_kem) >= 40;
+
+SELECT * FROM bang_tam_dich_vu_di_kem;
+
+UPDATE dich_vu_di_kem dvdk
+SET dvdk.gia = 2 * dvdk.gia
+WHERE dvdk.ma_dich_vu_di_kem IN (
+SELECT * FROM bang_tam_dich_vu_di_kem);
+
+SELECT * FROM dich_vu_di_kem;
+
+SELECT dvdk.ma_dich_vu_di_kem, COUNT(dvdk.ma_dich_vu_di_kem)
+FROM (hop_dong_chi_tiet hdct INNER JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong)
+INNER JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+WHERE DATEDIFF(hd.ngay_lam_hop_dong, '2021-1-1') >= 0
+AND DATEDIFF(hd.ngay_lam_hop_dong, '2021-12-31') <= 0
+GROUP BY dvdk.ma_dich_vu_di_kem;
+
+-- 20. Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, thông tin hiển thị bao gồm
+-- id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi
+
+SELECT kh.ma_khach_hang AS 'ID', kh.ho_ten_kh AS 'Ho ten', kh.email_kh AS 'Email', kh.so_dien_thoai_kh AS 'SDT', kh.ngay_sinh_kh AS 'Ngay sinh', kh.dia_chi_kh AS 'Dia chi'
+FROM khach_hang kh
+UNION
+SELECT nv.ma_nhan_vien, nv.ho_ten_nv, nv.email_nv, nv.so_dien_thoai_nv, nv.ngay_sinh_nv, nv.dia_chi_nv
+FROM nhan_vien nv;
