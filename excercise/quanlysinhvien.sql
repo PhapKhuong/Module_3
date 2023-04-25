@@ -29,20 +29,11 @@ CREATE TABLE mark (
 	MarkID INT PRIMARY KEY AUTO_INCREMENT,
    SubID INT,
    StuID INT,
-   Mark INT,
+   Score INT,
    ExamTimes INT,
    FOREIGN KEY (SubID) REFERENCES sub(SubID),
    FOREIGN KEY (StuID) REFERENCES student(StuID)
 );
-
-ALTER TABLE mark
-CHANGE mark POINT INT;
-
-ALTER TABLE mark
-CHANGE POINT Point INT;
-
-ALTER TABLE mark
-CHANGE Point Score INT;
 
 INSERT INTO class (ClassName, StartDate, ClassStatus)
 VALUES 
@@ -60,10 +51,6 @@ INSERT INTO student (StuName, Address, Phone, StuStatus, ClassID)
 VALUES
 	('Hoa', 'Hai Phong', NULL, 1, 1),
 	('Manh', 'HCM', '0123123123', 0, 2);
-	
-INSERT INTO student (StuID, StuName, Address, Phone, StuStatus, ClassID)
-VALUES
-	(1, 'Lan', 'Nam Dinh', NULL, 1, 1);
 	
 DELETE FROM student;
 
@@ -116,3 +103,19 @@ WHERE StuName = 'Hung';
 SELECT student.StuName, sub.SubName, mark.Score
 FROM (mark INNER JOIN student ON mark.StuID = student.StuID) INNER JOIN sub ON mark.SubID = sub.SubID
 ORDER BY mark.Score DESC, student.StuName;
+
+-- Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất
+SELECT * FROM sub
+WHERE Credit = (SELECT MAX(Credit) FROM sub);
+
+-- Hiển thị các thông tin môn học có điểm thi lớn nhất
+SELECT * FROM sub
+WHERE sub.SubID IN (
+SELECT SubID FROM mark
+WHERE Score = (SELECT MAX(Score) FROM mark));
+
+-- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+SELECT stu.StuID, stu.StuName, stu.Address, stu.Phone, stu.StuStatus, stu.ClassID, AVG(Score) AS 'Diem trung binh'
+FROM student stu INNER JOIN mark m ON stu.StuID = m.StuID
+GROUP BY m.StuID
+ORDER BY AVG(Score) DESC;
