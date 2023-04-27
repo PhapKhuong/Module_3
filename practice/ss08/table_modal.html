@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Danh sách sinh viên</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Họ tên</th>
+          <th scope="col">Lớp</th>
+          <th scope="col">Tuổi</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Khuê</td>
+          <td>A1022I1</td>
+          <td>20</td>
+          <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-hoten="Khuê" data-bs-lophoc="A1022I1"
+            data-bs-tuoi="20">Edit</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Pháp</td>
+          <td>A0922I1</td>
+          <td>25</td>
+          <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-hoten="Pháp" data-bs-lophoc="A0922I1"
+            data-bs-tuoi="25">Edit</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Thắng</td>
+          <td>A1122I1</td>
+          <td>22</td>
+          <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-hoten="Thắng" data-bs-lophoc="A1122I1"
+            data-bs-tuoi="22">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sửa thông tin sinh viên</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="ho-ten" class="col-form-label">Họ tên</label>
+              <input type="text" class="form-control" id="ho-ten">
+            </div>
+            <div class="mb-3">
+              <label for="lop-hoc" class="col-form-label">Lớp học</label>
+              <input type="text" class="form-control" id="lop-hoc">
+            </div>
+            <div class="mb-3">
+              <label for="tuoi" class="col-form-label">Tuổi</label>
+              <input type="text" class="form-control" id="tuoi">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+      // Button that triggered the modal
+      var button = event.relatedTarget
+      // Extract info from data-bs-* attributes
+      var hoten = button.getAttribute('data-bs-hoten')
+      var lophoc = button.getAttribute('data-bs-lophoc')
+      var tuoi = button.getAttribute('data-bs-tuoi')
+      // If necessary, you could initiate an AJAX request here
+      // and then do the updating in a callback.
+      //
+      // Update the modal's content.
+      // var modalTitle = exampleModal.querySelector('.modal-title')
+      var modalBodyInputHoten = exampleModal.querySelector('#ho-ten')
+      var modalBodyInputLophoc = exampleModal.querySelector('#lop-hoc')
+      var modalBodyInputTuoi = exampleModal.querySelector('#tuoi')
+      // modalTitle.textContent = 'New message to ' + recipient
+      modalBodyInputHoten.value = hoten
+      modalBodyInputLophoc.value = lophoc
+      modalBodyInputTuoi.value = tuoi
+    })
+  </script>
+</body>
+
+</html>
