@@ -1,7 +1,0 @@
-1. Kiểu dữ liệu chuỗi:
-	- CHAR(size): Ví dụ độ dài size là 10 thì khi tạo ra máy sẽ cấp cho 10 ô nhớ và không thay đổi;
-	- VARCHAR(size): Ví dụ độ dài size là 10 thì khi tạo ra máy sẽ cấp cho tối đa là 10 ô nhớ, số lượng có thể thay đổi được;
-	- BINARY: Chỉ có 2 giá trị là 0 và 1, mặc định giá trị là 1;
-	- VARBINARY: Chỉ có 2 giá trị là 0 và 1, mặc định giá trị là 1 nhưng khi có dữ liệu mới tốn bộ nhớ;
-	- ENUM: Giá trị chỉ gồm một số giá trị như giới tính (nam, nữ), trạng thái (mới, cũ),...
-2. Kiểu dữ liệu số:

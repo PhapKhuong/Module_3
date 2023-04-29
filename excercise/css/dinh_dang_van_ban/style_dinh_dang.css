@@ -1,0 +1,67 @@
+#wrapper {
+    max-width: 960px;
+    margin: 0px auto;
+}
+
+#header {
+    background: blue;
+    color: red;
+    padding: 20px;
+    text-align: center;
+    /* position: fixed; */
+}
+
+#main-content {
+    display: flex; 
+    /*display: flex --> Mặc định xếp theo hàng ngang */
+    min-height: 500px;
+}
+
+#content {
+    flex-basis: 70%;
+    text-align: justify;
+    line-height: 25px;
+    text-indent: 50px;
+    font-family: Arial;
+}
+
+#sidebar {
+    flex-basis: 30%;
+    text-align: justify;
+    line-height: 25px;
+    font-family: Arial;
+}
+
+#footer {
+    background: gray;
+    padding: 15px;
+    text-align: center;
+    /* position: fixed; */
+}
+
+h1 {
+    font-family: 'Times New Roman';
+    margin-bottom: 10px;
+    text-indent: 0px;
+}
+
+hr {
+    margin-top: 0.1cm;
+    margin-bottom: 0.1cm;
+}
+
+#note {
+    font-family: Arial;
+    margin-top: 0;
+    text-align: top;
+    text-indent: 0px;
+}
+
+.link {
+    color: mediumblue;
+}
+
+.super {
+    vertical-align: super;
+    font-size: 50%;
+}
