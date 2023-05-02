@@ -1,0 +1,83 @@
+body {
+  background: url("./images/galaxy.jpg");
+  background-size: cover;
+  background-position-y: 0;
+  /* Vị trí của backgroud theo trục dọc */
+}
+
+#wrapper {
+  min-height: 100vh;
+  /* min-height: 100vh --> Độ cao tối thiểu bằng  độ cao màn hình */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#form-login {
+  max-width: 400px;
+  background: rgba(7, 33, 122, 0.5);
+  flex-grow: 1;
+  /* flex-grow: 1 --> để độ rộng thẻ chiếm bằng max-width */
+  padding: 20px 30px 40px;
+  box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.5);
+}
+
+.form-heading {
+  font-family: "Corbel Light";
+  text-transform: uppercase;
+  font-size: 25px;
+  color: #f5f5f5;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  display: flex;
+  border-bottom: 0.5px solid rgb(117, 112, 112);
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group i {
+  color: rgb(224, 218, 218);
+  font-size: 16px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+}
+
+.form-input {
+  background: transparent;
+  /* Màu trong suốt, không màu */
+  border: 0;
+  /* Mặc định có border nên làm thế này để bỏ border đi */
+  outline: 0;
+  /* Outline là đường viền khi trỏ chuột nằm trong thẻ input, để bỏ Outline thì giá trị outline: 0 */
+  color: white;
+  flex-grow: 1;
+  /* flex-grow: 1 --> để độ rộng thẻ chiếm bằng max-width */
+}
+
+.form-input::placeholder {
+  /* Dấu "::" trỏ đến thuộc tính con được khai báo của thẻ đó */
+  color: rgb(224, 218, 218);
+}
+
+.form-submit {
+  background: transparent;
+  border: 1px solid rgb(117, 112, 112);
+  color: rgb(224, 218, 218);
+  width: 100%;
+  padding: 8px;
+  transition: 0.25s ease-in-out;
+  /* Hiệu ứng thay đổi khi di chuyển chuột vào */
+  margin-top: 30px;
+}
+
+.form-submit:hover {
+  /* Điều chỉnh hiển thị các thuộc tính cần khi di chuyển chuột vào */
+  border: 1px solid #0652dd;
+  background: #9980fa;
+  cursor: pointer;
+  /* Con trở chuột thành ngón tay */
+}
