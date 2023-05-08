@@ -1,0 +1,55 @@
+* Định nghĩa: Là cú pháp trong JSP để có thể viết bất kỳ một câu lệnh java nào (khai báo biến, phương thức; khởi tạo biến; in ra trình duyệt).
+
+* Cú pháp: 
+
+	<% java code %>
+
+* JSP Declaration: Chỉ khai báo biến, phương thức trong JSP.
+	<%! declaration; [decalaration;]+...%>
+Ví dụ:
+	<%! List<String> list = new ArrayList<String>();%>
+	<%! int i = 0;%>
+	<%! int a, b, c;%>
+
+* JSP Expression: Để hiển thị một chuỗi ký tự.
+
+	<%= expression %>
+
+Ví dụ:
+	<p>Today's date: <%= (new java.util.Date().Date()).toLocalString()%></p>
+Kết quả hiển thị lên trình duyệt:
+	Today's date: 06-Oct-2017 14:24:25
+
+* JSP Directive: Một chỉ thị JSP ảnh hưởng đến cấu trúc tổng thể của lớp servlet
+
+	<%@ directive attribute="vallue" %>
+
+Có 3 loại chỉ thị tag:
+	1. <%@ page ...%> Định nghĩa thuộc tính page-dependent, chẳng hạn như import package, trang lỗi và yêu cầu bộ đệm.
+	2. <%@ include ...%> Bao gồm tập tin trong giai đoạn biên dịch.
+	3. <%@ taglib ...%> Khai báo một tag library, chứa các hành động tùy chỉnh, được sử dụng trong trang.
+
+* JSP Action: Sử dụng cấu trúc XML để điều khiển hành vi của servlet engine
+Có thể chèn 1 file, tái sử dụng JavaBeans component, chuyển tiếp người dùng đến một trang khác hoặc tạo ra HTML cho java plugin
+
+	<jsp:action_name attribute="value" />
+
+	1. jsp:include --> Thêm nội dung được include tại thời điểm trang được request.
+
+	2. jsp:useBean --> Tìm hoặc khởi tạo một JavaBean.
+
+	3. jsp:setProperty --> Thiết lập thuộc tính của một JavaBean.
+
+	4. jsp:getProperty --> Chèn thuộc tính của một JavaBean vào đầu ra.
+
+	5. jsp:forward --> Chuyển tiếp người yêu cầu tới một trang mới.
+
+	6. jsp:plugin --> Tạo mã trình duyệt cụ thể mà làm cho một thẻ OBJECT hoặc EMBED cho Java plugin.
+
+	7. jsp:element --> Định nghĩa các phần tử XML động.
+
+	8. jsp:attribute --> Định nghĩa thuộc tính của phần tử XML được tự động định nghĩa.
+
+	9. jsp:body --> Định nghĩa phần thân của phần tử XML được tự động định nghĩa.
+
+	10. jsp:text --> Được sử dụng để viết văn bản mẫu trong các trang JSP và tài liệu.
