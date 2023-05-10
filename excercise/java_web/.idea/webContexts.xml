@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ss10_index_customerList/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ss10_index_customerList" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ss10_indext_customerList/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ss10_indext_customerList" />
+      </map>
+    </option>
+  </component>
+</project>

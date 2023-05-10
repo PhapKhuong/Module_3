@@ -1,0 +1,47 @@
+Về bản chất, JSP cũng chính là Servlet. Vì trong quá trình biên dịch, JSP sẽ được chuyển thành Servlet rồi Servlet này sẽ được biên dịch. Servlet của trang JSP có vòng đời giống như các Servlet thông thường.
+
+* Giống nhau:
+
+- Đều nằm ở phía server.
+- Đều xử lý dữ liệu “động”.
+- Đều chạy với web container.
+- Đều là những công nghệ quan trọng của Java EE.
+
+* Khác nhau:
+
+- Nếu như Servlet mạnh về “controlling” và “dispatching” nên trong kiến trúc MVC, Servlet đóng vai trò Controller, thì JSP lại mạnh về “displaying” và đóng vai trò View.
+- Ở Servlet, mã HTML nằm trong mã Java. Còn ở JSP, mã Java nằm trong mã HTML.
+
+
+* Tất cả các framework hay JSP của java đuề biên dịch về servlet và chạy trên máy ảo JVM.
+
+* Tomcat là một server.
+
+* Servlet chỉ được khởi tạo một lần duy nhất khi có request đầu tiên gửi lên, những request tiếp theo sẽ không cần khởi tạo lại servlet nữa mà chỉ cần truy xuất vào.
+
+* Servlet là cách gọi tắt của một đối tượng servlet được tạo từ một class và được lưu trữ trong bộ nhớ heap cho đến khi đối tượng được xóa đi:
+- Được khởi tạo bởi hàm init();
+- Xóa đi bởi hàm destroy();
+- Trong quuas trình tồn tại trong bộ nhớ heap, servlet có hàm service() để đón nhận request và xử lý request và trả về client.
+
+* Mapping trong file web.xml luôn phải có 2 thẻ trong <web-app> là thẻ <servlet> và <servlet-mapping>:
+- Thẻ <servlet> giúp map servlet-name với tên class servlet cần chạy.
+- Thẻ <servlet-mapping> giúp map servlet-name với tên đường dẫn url trên trình duyệt.
+
+* Khi gõ đường dẫn trên trình duyệt thì mặc định phương thức gửi đến server là phương thức GET.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
