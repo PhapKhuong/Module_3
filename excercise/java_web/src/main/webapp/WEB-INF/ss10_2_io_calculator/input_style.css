@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+}
+
+#wrapper {
+    align-items: center;
+    justify-content: center;
+    font-family: "Times New Roman";
+    display: flex;
+}
+
+select {
+    width: 100px;
+}
+
+input {
+    width: 100px;
+}
+
+td {
+    width: 120px;
+}
