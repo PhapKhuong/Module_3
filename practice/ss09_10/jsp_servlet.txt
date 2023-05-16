@@ -31,6 +31,11 @@ Về bản chất, JSP cũng chính là Servlet. Vì trong quá trình biên d�
 * Khi gõ đường dẫn trên trình duyệt thì mặc định phương thức gửi đến server là phương thức GET.
 
 
+* Forward và Redirect:
+- Forward: Chỉ cho phép chuyển tới các trang nằm trong website, đồng thời có thể truyền dữ liệu giữa hai trang thông qua req.setAttribute().
+- Redirect: Cho phép điều hướng tới bất kỳ một trang web nào khác bao gồm cả trang nằm trong và ngoài website (Trang B) nhưng không thể truyền dữ liệu giữa hai trang thông qua req.setAttribute(). Trên thanh URL lúc này xuất hiện địa chỉ của trang đã được điều hướng đến (tức trang B ở trên).                                                 
+
+
 
 
 
