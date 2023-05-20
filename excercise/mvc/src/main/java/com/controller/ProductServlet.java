@@ -64,14 +64,12 @@ public class ProductServlet extends HttpServlet {
         if (check) {
             String errorMsg = "ID of product is existed";
             req.setAttribute("error", errorMsg);
-            req.getRequestDispatcher("WEB-INF/view/product/home.jsp").forward(req, resp);
         } else {
             List<Product> products = new ArrayList<>();
             products.add(service.showDetail(detailId));
-
             req.setAttribute("products", products);
-            req.getRequestDispatcher("WEB-INF/view/product/home.jsp").forward(req, resp);
         }
+        req.getRequestDispatcher("WEB-INF/view/product/home.jsp").forward(req, resp);
     }
 
     private void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -127,9 +125,7 @@ public class ProductServlet extends HttpServlet {
             Product product = new Product(idUpdate, newName, newPrice, newQuantity, newOrigin);
             service.update(product);
 
-            products = service.display();
-            req.setAttribute("products", products);
-            req.getRequestDispatcher("WEB-INF/view/product/home.jsp").forward(req, resp);
+            resp.sendRedirect("/");
         }
     }
 

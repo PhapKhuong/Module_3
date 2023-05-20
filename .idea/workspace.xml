@@ -2,29 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="425f2954-7e67-4036-bd02-013be80296f4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_1_customerList/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/build/classes/java/main/com/ss09_product/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/build/classes/java/main/com/ss09_product/ProductServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/build/classes/java/main/com/ss10_customer/controller/CustomerListServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/build/classes/java/main/com/ss10_customer/model/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/build/libs/java_web-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/build/libs/java_web-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/java/com/ss09_product/ProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/java/com/ss09_product/ProductServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/java/com/ss10_customer/controller/CustomerListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/java/com/ss10_1_customer/controller/CustomerListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/java/com/ss10_customer/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/java/com/ss10_1_customer/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss09_index_product/output.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss09_index_product/output.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_index_customerList/display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_1_customerList/display.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_index_customerList/images/img1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_1_customerList/images/img1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_index_customerList/images/img2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_1_customerList/images/img2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_index_customerList/images/img3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_1_customerList/images/img3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_index_customerList/images/img4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_1_customerList/images/img4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_index_customerList/images/img5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_1_customerList/images/img5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/ss10_index_customerList/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/java_web/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise/css/table_modal/table_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/css/table_modal/table_modal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise/mvc/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/mvc/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise/mvc/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/mvc/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise/mvc/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/mvc/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise/mvc/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/mvc/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise/mvc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/excercise/mvc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +41,11 @@
       <option name="presentableId" value="Default" />
       <updated>1683826575154</updated>
       <workItem from="1683826576639" duration="1000" />
+      <workItem from="1684529868279" duration="627000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
