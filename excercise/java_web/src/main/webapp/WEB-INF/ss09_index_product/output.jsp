@@ -11,16 +11,16 @@
     <title>Title</title>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>Discount Amount</td>
-            <td>${discountAmount}</td>
-        </tr>
-        <tr>
-            <td>Discount Price</td>
-            <td>${discountPrice}</td>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <td>Discount Amount</td>
+        <td>${discountAmount}</td>
+    </tr>
+    <tr>
+        <td>Discount Price</td>
+        <td>${discountPrice}</td>
+    </tr>
+</table>
 
 </body>
 </html>

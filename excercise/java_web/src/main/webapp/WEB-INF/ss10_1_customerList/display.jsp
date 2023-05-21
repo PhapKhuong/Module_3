@@ -11,18 +11,20 @@
 <html>
 <head>
     <title>List of Customers</title>
-    <style><%@include file="./style.css"%></style>
+    <style>
+        <%@include file="./style.css" %>
+    </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Date of Birth</th>
-            <th>Address</th>
-            <th>Picture</th>
-        </tr>
-        <c:forEach items="${customers}" var="customer">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+        <th>Picture</th>
+    </tr>
+    <c:forEach items="${customers}" var="customer">
         <tr style="height: 150px">
             <td>${customer.id}</td>
             <td>${customer.name}</td>
@@ -32,7 +34,7 @@
                 <img src="${customer.picture}" width="200px">
             </td>
         </tr>
-        </c:forEach>
-    </table>
+    </c:forEach>
+</table>
 </body>
 </html>

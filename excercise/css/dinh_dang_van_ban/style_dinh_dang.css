@@ -12,7 +12,7 @@
 }
 
 #main-content {
-    display: flex; 
+    display: flex;
     /*display: flex --> Mặc định xếp theo hàng ngang */
     min-height: 500px;
 }

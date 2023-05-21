@@ -1,255 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Các kiểu dữ liệu cơ bản trong SQL</title>
     <style>
-      h2 {
-        color: blue;
-      }
+        h2 {
+            color: blue;
+        }
 
-      h3 {
-        color: cyan;
-      }
+        h3 {
+            color: cyan;
+        }
 
-      .italic {
-        color: brown;
-        font-style: italic;
-      }
+        .italic {
+            color: brown;
+            font-style: italic;
+        }
 
-      #end {
-        color: darkmagenta;
-        text-align: center;
-      }
+        #end {
+            color: darkmagenta;
+            text-align: center;
+        }
 
     </style>
 
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
 
-  <body>
-    <h1 style="color: red">Các kiểu dữ liệu trong SQL</h1>
-    <h2>Kiểu dữ liệu dạng số</h2>
-    <h3>Kiểu dữ liệu số nguyên</h3>
-    <ol>
-      <li>
+<body>
+<h1 style="color: red">Các kiểu dữ liệu trong SQL</h1>
+<h2>Kiểu dữ liệu dạng số</h2>
+<h3>Kiểu dữ liệu số nguyên</h3>
+<ol>
+    <li>
         <p>TinyInt</p>
         <ul>
-          <li class="li_style">Độ dài (số byte): 1</li>
-          <li class="li_style">Giá trị lưu trữ (có dấu): -128 - 127</li>
-          <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 255</li>
+            <li class="li_style">Độ dài (số byte): 1</li>
+            <li class="li_style">Giá trị lưu trữ (có dấu): -128 - 127</li>
+            <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 255</li>
         </ul>
-      </li>
+    </li>
 
-      <li>
+    <li>
         <p>SmallInt</p>
         <ul>
-          <li class="li_style">Độ dài (số byte): 2</li>
-          <li class="li_style">Giá trị lưu trữ (có dấu): -32768 - 32767</li>
-          <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 65535</li>
+            <li class="li_style">Độ dài (số byte): 2</li>
+            <li class="li_style">Giá trị lưu trữ (có dấu): -32768 - 32767</li>
+            <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 65535</li>
         </ul>
-      </li>
+    </li>
 
-      <li>
+    <li>
         <p>MediumInt</p>
         <ul>
-          <li class="li_style">Độ dài (số byte): 3</li>
-          <li class="li_style">Giá trị lưu trữ (có dấu): -8388608 - 8388607</li>
-          <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 16777215</li>
+            <li class="li_style">Độ dài (số byte): 3</li>
+            <li class="li_style">Giá trị lưu trữ (có dấu): -8388608 - 8388607</li>
+            <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 16777215</li>
         </ul>
-      </li>
+    </li>
 
-      <li>
+    <li>
         <p>Int</p>
         <ul>
-          <li class="li_style">Độ dài (số byte): 4</li>
-          <li class="li_style">Giá trị lưu trữ (có dấu): -2147483648 - 2147483647</li>
-          <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 4294967295</li>
+            <li class="li_style">Độ dài (số byte): 4</li>
+            <li class="li_style">Giá trị lưu trữ (có dấu): -2147483648 - 2147483647</li>
+            <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 4294967295</li>
         </ul>
-      </li>
+    </li>
 
-      <li>
+    <li>
         <p>BigInt</p>
         <ul>
-          <li class="li_style">Độ dài (số byte): 8</li>
-          <li class="li_style">
-            Giá trị lưu trữ (có dấu): -9223372036854775808 - 9223372036854775807
-          </li>
-          <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 18446744073709551615</li>
+            <li class="li_style">Độ dài (số byte): 8</li>
+            <li class="li_style">
+                Giá trị lưu trữ (có dấu): -9223372036854775808 - 9223372036854775807
+            </li>
+            <li class="li_style">Giá trị lưu trữ (không dấu): 0 - 18446744073709551615</li>
         </ul>
-      </li>
-    </ol>
+    </li>
+</ol>
 
-    <h3>Kiểu dữ liệu số thực</h3>
-    <ol>
-      <li>
+<h3>Kiểu dữ liệu số thực</h3>
+<ol>
+    <li>
         <p>Float(M, D)</p>
         <ul>
-          <li class="li_style">(M) là độ dài phần nguyên</li>
-          <li class="li_style">(D) là độ dài phần thập phân</li>
-          <li class="li_style">Độ dài (số byte): 4</li>
-          <li class="li_style">Giá trị lưu trữ (có dấu): -3.402823466E+38 - -1.175494351E-38</li>
-          <li class="li_style">
-            Giá trị lưu trữ (không dấu): 1.175494351E-38 - 3.402823466E+38
-          </li>
+            <li class="li_style">(M) là độ dài phần nguyên</li>
+            <li class="li_style">(D) là độ dài phần thập phân</li>
+            <li class="li_style">Độ dài (số byte): 4</li>
+            <li class="li_style">Giá trị lưu trữ (có dấu): -3.402823466E+38 - -1.175494351E-38</li>
+            <li class="li_style">
+                Giá trị lưu trữ (không dấu): 1.175494351E-38 - 3.402823466E+38
+            </li>
         </ul>
-      </li>
+    </li>
 
-      <li>
+    <li>
         <p>Double(M, D)</p>
         <ul>
-          <li class="li_style">(M) là độ dài phần nguyên</li>
-          <li class="li_style">(D) là độ dài phần thập phân</li>
-          <li class="li_style">Độ dài (số byte): 8</li>
-          <li class="li_style">
-            Giá trị lưu trữ (có dấu): -1.7976931348623157E+ 308 -
-            -2.2250738585072014E- 308
-          </li>
-          <li class="li_style">
-            Giá trị lưu trữ (không dấu): 0 and 2.2250738585072014E- 308 -
-            1.7976931348623157E+ 308
-          </li>
+            <li class="li_style">(M) là độ dài phần nguyên</li>
+            <li class="li_style">(D) là độ dài phần thập phân</li>
+            <li class="li_style">Độ dài (số byte): 8</li>
+            <li class="li_style">
+                Giá trị lưu trữ (có dấu): -1.7976931348623157E+ 308 -
+                -2.2250738585072014E- 308
+            </li>
+            <li class="li_style">
+                Giá trị lưu trữ (không dấu): 0 and 2.2250738585072014E- 308 -
+                1.7976931348623157E+ 308
+            </li>
         </ul>
-      </li>
-    </ol>
+    </li>
+</ol>
 
-    <h3>Kiểu dữ liệu DECIMAL và NUMERIC</h3>
-    <p class="italic">
-      Trong MySQL kiểu DECIMAL và NUMERIC lưu trữ chính xác các dữ liệu số, định
-      dạng nhị phân. Kiểu dữ liệu này thường được áp dụng với dữ liệu tiền tệ,
-      đơn giá.
-      <br />
-      Ví dụ: Decimal (5,2): Nghĩa là nó có thể lưu trữ một giá trị có 5 chữ số
-      trong đó có 2 số thập phân
-    </p>
-    <h2>Kiểu dữ liệu Date and Time</h2>
-    <h3>Kiểu dữ liệu Date</h3>
-    <ul>
-      <li class="li_style">Định dạng hiển thị: YYYY-MM-DD</li>
-      <li class="li_style">Phạm vi thời gian: '1000-01-01 00:00:00' to '9999-12-31'</li>
-    </ul>
+<h3>Kiểu dữ liệu DECIMAL và NUMERIC</h3>
+<p class="italic">
+    Trong MySQL kiểu DECIMAL và NUMERIC lưu trữ chính xác các dữ liệu số, định
+    dạng nhị phân. Kiểu dữ liệu này thường được áp dụng với dữ liệu tiền tệ,
+    đơn giá.
+    <br/>
+    Ví dụ: Decimal (5,2): Nghĩa là nó có thể lưu trữ một giá trị có 5 chữ số
+    trong đó có 2 số thập phân
+</p>
+<h2>Kiểu dữ liệu Date and Time</h2>
+<h3>Kiểu dữ liệu Date</h3>
+<ul>
+    <li class="li_style">Định dạng hiển thị: YYYY-MM-DD</li>
+    <li class="li_style">Phạm vi thời gian: '1000-01-01 00:00:00' to '9999-12-31'</li>
+</ul>
 
-    <h3>Kiểu dữ liệu DateTime</h3>
-    <ul>
-      <li class="li_style">Định dạng hiển thị: YYYY-MM-DD HH:MM:SS</li>
-      <li class="li_style">Phạm vi thời gian: '1000-01-01 00:00:00' to '9999-12-31 23:59:59'</li>
-    </ul>
+<h3>Kiểu dữ liệu DateTime</h3>
+<ul>
+    <li class="li_style">Định dạng hiển thị: YYYY-MM-DD HH:MM:SS</li>
+    <li class="li_style">Phạm vi thời gian: '1000-01-01 00:00:00' to '9999-12-31 23:59:59'</li>
+</ul>
 
-    <h3>Kiểu dữ liệu TimeStamp</h3>
-    <ul>
-      <li class="li_style">Định dạng hiển thị: HH:MM:SS</li>
-      <li class="li_style">Phạm vi thời gian: '-838:59:59' to '838:59:59'</li>
-    </ul>
-    <p class="italic">
-      Lưu ý: Phần thời gian có thể lớn bởi vì kiểu TIME có thể không chỉ mô tả
-      thời gian của một ngày (Vốn chỉ có tối đa 24 giờ), mà nó có thể là thời
-      gian trôi qua hoặc khoảng thời gian giữa hai sự kiện (Cái mà có thể lớn
-      hơn 24h thậm trí có giá trị âm).
-      <br />
-      Sự khác biệt chính của DATETIME và TIMESTAMP là giá trị của TIMESTAMP được
-      chuyển đổi từ múi giờ hiện tại sang UTC trong khi lưu trữ, và chuyển ngược
-      trở lại từ UTC sang múi giờ hiện tại trong lúc lấy ra. Còn kiểu dữ liệu
-      DATETIME thì không có gì thay đổi.
-    </p>
+<h3>Kiểu dữ liệu TimeStamp</h3>
+<ul>
+    <li class="li_style">Định dạng hiển thị: HH:MM:SS</li>
+    <li class="li_style">Phạm vi thời gian: '-838:59:59' to '838:59:59'</li>
+</ul>
+<p class="italic">
+    Lưu ý: Phần thời gian có thể lớn bởi vì kiểu TIME có thể không chỉ mô tả
+    thời gian của một ngày (Vốn chỉ có tối đa 24 giờ), mà nó có thể là thời
+    gian trôi qua hoặc khoảng thời gian giữa hai sự kiện (Cái mà có thể lớn
+    hơn 24h thậm trí có giá trị âm).
+    <br/>
+    Sự khác biệt chính của DATETIME và TIMESTAMP là giá trị của TIMESTAMP được
+    chuyển đổi từ múi giờ hiện tại sang UTC trong khi lưu trữ, và chuyển ngược
+    trở lại từ UTC sang múi giờ hiện tại trong lúc lấy ra. Còn kiểu dữ liệu
+    DATETIME thì không có gì thay đổi.
+</p>
 
-    <h3>Kiểu dữ liệu Year (1-byte để mô tả giá trị)</h3>
+<h3>Kiểu dữ liệu Year (1-byte để mô tả giá trị)</h3>
+<ul>
+    <p>YEAR(2)</p>
     <ul>
-      <p>YEAR(2)</p>
-      <ul>
         <li class="li_style">Chỉ định rõ chiều rộng hiển thị là 2 ký tự</li>
         <li class="li_style">Định dạng hiển thị: Hiển thị 2 số cuối của năm</li>
         <li class="li_style">Phạm vi: '0' to '99'</li>
-      </ul>
     </ul>
+</ul>
 
+<ul>
+    <p>YEAR(4)</p>
     <ul>
-      <p>YEAR(4)</p>
-      <ul>
         <li class="li_style">
-          Chỉ định rõ chiều rộng hiển thị là 4 ký tự. Nếu không chỉ rõ chiều
-          rộng mặc định là 4 ký tự
+            Chỉ định rõ chiều rộng hiển thị là 4 ký tự. Nếu không chỉ rõ chiều
+            rộng mặc định là 4 ký tự
         </li>
         <li class="li_style">Định dạng hiển thị: YYYY</li>
         <li class="li_style">Phạm vi: '1901' to '2155'</li>
-      </ul>
     </ul>
+</ul>
 
-    <h2>Kiểu chuỗi</h2>
-    <h3>Kiểu dữ liệu CHAR và VARCHAR</h3>
-    <ol>
-      <li>
+<h2>Kiểu chuỗi</h2>
+<h3>Kiểu dữ liệu CHAR và VARCHAR</h3>
+<ol>
+    <li>
         <p>Char</p>
         <ul>
-          <li class="li_style">
-            Có độ dài cố định, máy tính sẽ cấp cho bộ nhớ cố định tương ứng với
-            số ký tự khai báo
-          </li>
-          <li class="li_style">Phạm vi các ký tự: '0' to '255'</li>
+            <li class="li_style">
+                Có độ dài cố định, máy tính sẽ cấp cho bộ nhớ cố định tương ứng với
+                số ký tự khai báo
+            </li>
+            <li class="li_style">Phạm vi các ký tự: '0' to '255'</li>
         </ul>
-      </li>
+    </li>
 
-      <li>
+    <li>
         <p>Varchar</p>
         <ul>
-          <li class="li_style">Có độ dài thay đổi, số ký tự tối đa bằng số ký tự khai báo</li>
-          <li class="li_style">Phạm vi các ký tự: '0' to '65535'</li>
+            <li class="li_style">Có độ dài thay đổi, số ký tự tối đa bằng số ký tự khai báo</li>
+            <li class="li_style">Phạm vi các ký tự: '0' to '65535'</li>
         </ul>
-      </li>
-    </ol>
+    </li>
+</ol>
 
-    <h3>Kiểu dữ liệu BINARY và VARBINARY</h3>
-    <ol>
-      <li>
+<h3>Kiểu dữ liệu BINARY và VARBINARY</h3>
+<ol>
+    <li>
         <p>BINARY</p>
         <ul>
-          <li class="li_style">Định dạng hiển thị: Chứa các chuỗi nhị phân (Binary Strings)</li>
-          <li class="li_style">Phạm vi các ký tự: '0' to '255'</li>
+            <li class="li_style">Định dạng hiển thị: Chứa các chuỗi nhị phân (Binary Strings)</li>
+            <li class="li_style">Phạm vi các ký tự: '0' to '255'</li>
         </ul>
-      </li>
+    </li>
 
-      <li>
+    <li>
         <p>VARBINARY</p>
         <ul>
-          <li class="li_style">Định dạng hiển thị: Chứa các chuỗi nhị phân (Binary Strings)</li>
-          <li class="li_style">Phạm vi các ký tự: '0' to '65535'</li>
+            <li class="li_style">Định dạng hiển thị: Chứa các chuỗi nhị phân (Binary Strings)</li>
+            <li class="li_style">Phạm vi các ký tự: '0' to '65535'</li>
         </ul>
-      </li>
-    </ol>
+    </li>
+</ol>
 
-    <h3>Kiểu dữ liệu BLOB và TEXT</h3>
-    <ol>
-      <li>
+<h3>Kiểu dữ liệu BLOB và TEXT</h3>
+<ol>
+    <li>
         <p>BLOB</p>
         <ul>
-          <li class="li_style">TINYBLOB (Chiều dài tối đa là 255 ký tự)</li>
-          <li class="li_style">BLOB</li>
-          <li class="li_style">MEDIUMBLOB (Chiều dài tối đa là 16777215 ký tự)</li>
-          <li class="li_style">LONGBLOB (Chiều dài tối đa là 4294967295 ký tự)</li>
+            <li class="li_style">TINYBLOB (Chiều dài tối đa là 255 ký tự)</li>
+            <li class="li_style">BLOB</li>
+            <li class="li_style">MEDIUMBLOB (Chiều dài tối đa là 16777215 ký tự)</li>
+            <li class="li_style">LONGBLOB (Chiều dài tối đa là 4294967295 ký tự)</li>
         </ul>
-      </li>
+    </li>
 
-      <li>
+    <li>
         <p>TEXT</p>
         <ul>
-          <li class="li_style">TINYTEXT (Chiều dài tối đa là 255 ký tự)</li>
-          <li class="li_style">TEXT</li>
-          <li class="li_style">MEDIUMTEXT (Chiều dài tối đa là 16777215 ký tự)</li>
-          <li class="li_style">LONGTEXT (Chiều dài tối đa là 4294967295 ký tự)</li>
+            <li class="li_style">TINYTEXT (Chiều dài tối đa là 255 ký tự)</li>
+            <li class="li_style">TEXT</li>
+            <li class="li_style">MEDIUMTEXT (Chiều dài tối đa là 16777215 ký tự)</li>
+            <li class="li_style">LONGTEXT (Chiều dài tối đa là 4294967295 ký tự)</li>
         </ul>
-      </li>
-    </ol>
-    <h3>Kiểu dữ liệu ENUM</h3>
-    <p class="italic">
-      Khi định nghĩa một trường kiểu này, tức là, ta đã chỉ ra một danh sách các
-      đối tượng mà trường phải nhận (có thể là Null).
-      <br />
-      Ví dụ, nếu ta muốn một trường nào đó chỉ nhận một trong các giá trị "A"
-      hoặc "B" hoặc "C" thì ta phải định nghĩa kiểu ENUM cho nó như sau: ENUM
-      ('A', 'B', 'C'). Và chỉ có các giá trị này (hoặc NULL) có thể xuất hiện
-      trong trường đó.
-    </p>
-    <p id="end">KẾT THÚC</p>
-  </body>
+    </li>
+</ol>
+<h3>Kiểu dữ liệu ENUM</h3>
+<p class="italic">
+    Khi định nghĩa một trường kiểu này, tức là, ta đã chỉ ra một danh sách các
+    đối tượng mà trường phải nhận (có thể là Null).
+    <br/>
+    Ví dụ, nếu ta muốn một trường nào đó chỉ nhận một trong các giá trị "A"
+    hoặc "B" hoặc "C" thì ta phải định nghĩa kiểu ENUM cho nó như sau: ENUM
+    ('A', 'B', 'C'). Và chỉ có các giá trị này (hoặc NULL) có thể xuất hiện
+    trong trường đó.
+</p>
+<p id="end">KẾT THÚC</p>
+</body>
 </html>

@@ -12,10 +12,10 @@
     <title>Result</title>
 </head>
 <body>
-    <c:if test="${error != null}">
-        <h1 style="color: red">${error}</h1>
-    </c:if>
-        <h1>Kết quả: ${result}</h1>
-    <a href="/calculator" style="color: blue"><b>BACK</b></a>
+<c:if test="${error != null}">
+    <h1 style="color: red">${error}</h1>
+</c:if>
+<h1>Kết quả: ${result}</h1>
+<a href="/calculator" style="color: blue"><b>BACK</b></a>
 </body>
 </html>

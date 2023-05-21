@@ -148,12 +148,12 @@ public class ProductRepositoryImpl implements ProductRepository {
                     idList.add(resultSet.getInt("id"));
                 }
 
-                if(!idList.contains(index)) {
+                if (!idList.contains(index)) {
                     return false;
                 }
 
                 statement = connection.prepareStatement(DELETE_PRODUCT);
-                statement.setInt(1,index);
+                statement.setInt(1, index);
                 statement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
